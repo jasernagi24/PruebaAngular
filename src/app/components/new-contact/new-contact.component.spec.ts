@@ -12,7 +12,7 @@ describe('NewContactComponent', () => {
     })
     .compileComponents();
   });
-
+  
   beforeEach(() => {
     fixture = TestBed.createComponent(NewContactComponent);
     component = fixture.componentInstance;
