@@ -22,7 +22,7 @@ export class ContactListComponent implements OnInit {
     this.contacts = this._contactService.getContact()
   }
 
-
+  //Funcion que permite eliminar un  contacto de la lista
   deleteContact(contact: ContactModel) {
     if(confirm('Are you sure you want to delete this contact?')) {
       this._contactService.deleteContact(contact);

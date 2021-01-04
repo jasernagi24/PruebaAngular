@@ -10,6 +10,7 @@ export class ContactService {
 
   constructor() { }
 
+  //Funcion del servicio que permite agregar al contacto en el localstorage
   addContact (contact:ContactModel){
     console.log(contact)
     if(localStorage.getItem('contacts') === null){
@@ -23,6 +24,7 @@ export class ContactService {
     }
   }
 
+  //Funcion del servicio que permite obtener una lista de los contactos guardados en el local storage
   getContact (){
     if(localStorage.getItem('contacts') === null){
       this.contacts = [];
@@ -33,6 +35,7 @@ export class ContactService {
     return this.contacts
   }
 
+  //Funcion del servicio que permite eliminar un contacto de la lista guardada en el local storage
   deleteContact(contact: ContactModel) {
     for (let i = 0; i < this.contacts.length; i++) {
       if (contact == this.contacts[i]) {
@@ -42,8 +45,8 @@ export class ContactService {
     }
   }
 
+//Funcion del servicio que permite seleccionar el contacto de la lista guardada en el local storage utilizando el id
   selectionContact(idContact:string){
-    
     for (let i = 0; i < this.contacts.length; i++) {
       if (idContact == this.contacts[i].id) {
         return this.contacts[i]
@@ -51,6 +54,7 @@ export class ContactService {
     }
   }
 
+  //Funcion del servicio que permite actualizar el contacto de la lista guardada en el local storage utilizando el id
   updateContact(idContact:string, contact: ContactModel){
     for(let i = 0; i < this.contacts.length; i++){
       if (idContact == this.contacts[i].id) {

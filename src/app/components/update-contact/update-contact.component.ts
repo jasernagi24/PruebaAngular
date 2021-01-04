@@ -20,6 +20,8 @@ export class UpdateContactComponent implements OnInit {
     this.contact = this._contactService.selectionContact(this.activatedRoute.snapshot.params.id)
   }
 
+  //Funcion que permite actualizar un contacto de la lista, al momento de llenar el formulario, todos los datos 
+  //deben de estar digitados para que permita guardar al contacto 
   updateContact(contact: NgForm) {
     try{
     if(this.contact.id == "" || this.contact.name == "" || this.contact.cellphone == "" || this.contact.direction == "" || this.contact.birthday == null){

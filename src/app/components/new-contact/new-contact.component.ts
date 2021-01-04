@@ -19,21 +19,23 @@ export class NewContactComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Funcion que permite agregar un nuevo contacto a la lista, al momento de llenar el formulario, todos los datos 
+  //deben de estar digitados para que permita guardar al contacto 
   addNewContact(contact:NgForm){
     try{
       if(this.contact.id == "" || this.contact.name == "" || this.contact.cellphone == "" || this.contact.direction == "" || this.contact.birthday == null){
         alert('Nesecitas ingresar todos los campos')
       }
       else{
-    if(confirm('Are you sure you want to add this contact?')) {
-    this._contactService.addContact(this.contact)
-    this.router.navigateByUrl('/contactList')
+        if(confirm('Are you sure you want to add this contact?')) {
+        this._contactService.addContact(this.contact)
+        this.router.navigateByUrl('/contactList')
+        }
+      }
     }
-  }
-}
-catch (e){
-  console.log(e)
-}
+    catch (e){
+      console.log(e)
+    }
   }
 
 }

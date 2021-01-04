@@ -22,24 +22,34 @@ export class HomeComponent implements OnInit {
     this.totalContacts()
     this.today.getDate()
     this.totalBirthday()
-    console.log(this.today)
-
   }
 
+  //Funcion que permite realizar la suma de cada contacto que este en la lista
   totalContacts(){
-    for(var i=0; i < this.contacts.length; i++){
-      this.numContacts += 1;
+    try{
+      for(var i=0; i < this.contacts.length; i++){
+        this.numContacts += 1;
+      }
+    }
+    catch (e){
+    console.log(e)
     }
   }
 
+  //Funcion que permite realizar la suma de unicamente las personas que estan cumpliendo años el dia de hoy
   totalBirthday(){
-    var dayToday = this.today.getUTCDate();
-    var monthToday = this.today.getUTCMonth();
-    for(var i=0; i < this.contacts.length; i++){
-      let dayBirthday = new Date(this.contacts[i].birthday)
-      if ( dayToday == dayBirthday.getUTCDate() && monthToday == dayBirthday.getUTCMonth()){
-        this.numBirthdat += 1;
+    try{
+      var dayToday = this.today.getUTCDate();
+      var monthToday = this.today.getUTCMonth();
+      for(var i=0; i < this.contacts.length; i++){
+        let dayBirthday = new Date(this.contacts[i].birthday)
+        if ( dayToday == dayBirthday.getUTCDate() && monthToday == dayBirthday.getUTCMonth()){
+          this.numBirthdat += 1;
+        }
       }
+    }
+    catch(e){
+      console.log(e)
     }
 
   }
