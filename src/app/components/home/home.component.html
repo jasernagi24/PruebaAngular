@@ -1,0 +1,20 @@
+<div style="align-content: center;">
+    <h4 style="color: gray;"> Home </h4>
+    <div id="nameUser">
+        <h3>Juancho contacts</h3>
+    </div>
+
+    <div id="content">
+        <div id="totalContact"> 
+            <h1 style="font-size: 400%;">{{numContacts}}</h1>
+            <h3>Total de contactos</h3>
+        </div>
+        <div id="numbirthday"> 
+            <h1 style="font-size: 400%;">{{numBirthdat}}</h1>
+            <h3>Happy Birthday today</h3>
+        </div>
+        <div style="margin-top: 2%;padding: 5%;">
+            <a id="contactbutton" [routerLink]="['/contactList']">Mis contactos</a>
+        </div>
+    </div>
+</div>

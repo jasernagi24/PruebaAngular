@@ -1,0 +1,43 @@
+
+<div style="align-content: center;">
+    <h4 style="color: gray;"> Contact List </h4>
+    <div id="nameUser">
+        <h3>Juancho contacts</h3>
+    </div>
+    <form (ngSubmit)="updateContact(formContact)" #formContact="ngForm">
+        <div id="content">
+            <h2>Actualizar contacto Contacto</h2>
+            <div id="form">
+                <h4>Numero de identificacion</h4>
+                <span *ngIf="formContact.submitted && 
+                    formContact.controls['idnum'].errors" class="text-danger">Digitar un numero de identificacion valido</span>
+                <input type="text"  name="idnum" id="id" [(ngModel)]="contact.id" required>
+                <p></p>
+                <h4>Nombre completo</h4>
+                <span *ngIf="formContact.submitted && 
+                    formContact.controls['name'].errors" class="text-danger">Digitar un nombre valido</span>
+                <input type="text" name="name" id="name" [(ngModel)]="contact.name" required>
+                <p></p>
+                <h4>Numero de celular</h4>
+                <span *ngIf="formContact.submitted && 
+                    formContact.controls['cellphone'].errors" class="text-danger">Digitar un numero de celular valido</span>
+                <input type="text" name="cellphone" id="cellphone" [(ngModel)]="contact.cellphone" required>
+                <p></p>
+                <h4>Direccion</h4>
+                <span *ngIf="formContact.submitted && 
+                    formContact.controls['direction'].errors" class="text-danger">Digitar una direccion valida</span>
+                <input type="text" name="direction" id="direction" [(ngModel)]="contact.direction" required>
+                <p></p>
+                <h4>Numero de identificacion</h4>
+                <span *ngIf="formContact.submitted && 
+                    formContact.controls['birthday'].errors" class="text-danger">Digitar una fecha de cumpleaños valida</span>
+                <input type="date" name="birthday" id="birthday" [(ngModel)]="contact.birthday" required>
+            </div>
+    
+            <button type="submit" class="buttonContact">Guardar</button>
+            <a class="buttonContact" [routerLink]="['/contactList']" >Cancelar</a>
+    
+    
+        </div>
+    </form>
+</div>

@@ -1,0 +1,44 @@
+
+<div style="align-content: center;">
+    <h4 style="color: gray;"> Contact List </h4>
+    <div id="nameUser">
+        <h3>Juancho contacts</h3>
+    </div>
+
+    <div id="content">
+        <div id="newcontact">
+            <a id="newcontactbutton" [routerLink]="['/newContact']">Nuevo contacto</a>
+        </div>   
+        <div id="startbutton">
+            <a  id="startbuttonA" [routerLink]="['/home']">Inicio</a>
+        </div>   
+
+        <ng-container *ngIf="contacts.length !== 0; else nullMessage">
+            <div id="contact" *ngFor="let contact of contacts">
+                <div class="image">
+                    <mat-icon class="image-icon">account_circle</mat-icon>
+                </div>
+                <div class="data">
+                    <h5>{{contact.name}}</h5>
+                    <h5>{{contact.cellphone}}</h5>
+                    <h5>{{contact.birthday}}</h5>
+                </div>
+                <div class="buttoncontact">
+                    <button mat-stroked-button color="black">
+                        <a [routerLink]="['/updateContact',contact.id]">
+                        <mat-icon>create</mat-icon>
+                        </a>
+                    </button>
+                    <button mat-stroked-button color="black" style="margin-left: 2%;" (click)="deleteContact(contact)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #nullMessage>
+            <h1>Lista de contactos vacia</h1>
+        </ng-template>
+
+
+    </div>
+</div>
